@@ -1,0 +1,49 @@
+#!/usr/bin/env node
+
+'use strict';
+var path = require('path');
+var fs = require('fs');
+var child_process = require('child_process');
+var copyPath = require('../lib/copyPath.js');
+
+var cwd = process.cwd();
+var gruntSTKPath = path.join(__dirname, '../');
+var gruntCopyPath = path.join(gruntSTKPath, 'grunt-copy/');
+
+var command = process.argv[2];
+if (command === 'install') {
+
+	if (!fs.existsSync(path.join(cwd, 'tasks-grunt/'))) {
+		gruntSTKInstall();
+	} else {
+		installGrunt();
+	}
+
+} else if (command === 'update') {
+	updateGruntSTK();
+} else {
+	console.log('命令列表:');
+    console.log();
+    console.log('    1、将STK处理工具安装到当前目录');
+    console.log('    grunt-stk install');
+    console.log('    2、在当前目录更新STK处理工具');
+    console.log('    grunt-stk update');
+}
+
+function updateGruntSTK() {
+	child_process.exec('npm install grunt-stk -g', gruntSTKInstall).stdout.pipe(process.stdout);
+}
+
+function gruntSTKInstall() {
+	console.log('grunt stk copy...');
+	copyPath(gruntCopyPath, cwd, installGrunt);
+	console.log('grunt stk copy end!');
+}
+
+function installGrunt() {
+	child_process.exec('npm install grunt-cli -g', npmInstall).stdout.pipe(process.stdout);
+}
+
+function npmInstall() {
+	child_process.exec('npm install').stdout.pipe(process.stdout);
+}

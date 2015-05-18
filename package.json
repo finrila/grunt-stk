@@ -1,0 +1,42 @@
+{
+  "name": "grunt-stk",
+  "description": "新浪STK build工具库",
+  "version": "0.1.11",
+  "author": "Sina",
+  "homepage": "https://github.com/finrila/grunt-stk",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/finrila/grunt-stk.git"
+  },
+  "bugs": {
+    "url": "http://github.com/finrila/grunt-stk/issues"
+  },
+  "bin": {
+    "grunt-stk": "bin/grunt-stk"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "node bin/grunt-stk test"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+	  "cp-file": "2.0.2"
+  },
+  "devDependencies": {
+  },
+  "contributors": [],
+  "_from": "brick-cli@",
+  "_npmVersion": "0.1.0",
+  "_npmUser": {
+    "name": "finrila",
+    "email": "finrila@gmail.com"
+  },
+  "maintainers": [
+    "finrila <finrila@gmail.com>"
+  ],
+  "directories": {},
+  "main": "index.js",
+  "license": "ISC"
+}
