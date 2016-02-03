@@ -1,7 +1,7 @@
 {
   "name": "grunt-stk",
   "description": "新浪STK build工具库",
-  "version": "0.1.11",
+  "version": "0.1.14",
   "author": "Sina",
   "homepage": "https://github.com/finrila/grunt-stk",
   "repository": {

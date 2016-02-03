@@ -6,11 +6,12 @@ module.exports = function(grunt) {
 	
     var serverPort = 7777;
     var pathnamePrefix = '/';
+    var outputPath = 'output/';
     
     var Config = {
         // 清理
         clean: {
-            'output': ["output"]
+            'output': [outputPath]
         },
         // 文件合并
         concat: {
@@ -22,7 +23,7 @@ module.exports = function(grunt) {
                     'expand': true,
                     'cwd': './',
                     'src': ['images/**/*', 'css/**/*'],
-                    'dest': 'output/'
+                    'dest': outputPath
                 }]
 			}
         },//预处理我们的前端jade模板
@@ -30,16 +31,16 @@ module.exports = function(grunt) {
             js: {
                 'cwd': 'js/',
                 'src': ['**/*.js'],
-                'dest': 'output/js/'
+                'dest': outputPath + 'js/'
             }
         },
 		uglify: {
 			'js': {
 				'files': [{
 					expand: true,
-					cwd: 'output/js/',
+					cwd: outputPath + 'js/',
 					src: ['**/*.js'],
-					dest: 'output/js/',
+					dest: outputPath + 'js/',
 					ext: '.js'
 				}]
 			}
@@ -49,7 +50,7 @@ module.exports = function(grunt) {
 			'css': {
 				cwd: 'css/',
                 src: ['**/*.css'],
-                dest: 'output/css/',
+                dest: outputPath + 'css/',
                 ext: '.css'
 			}
 		},
